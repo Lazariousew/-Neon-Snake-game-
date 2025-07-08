@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/masked-icon.svg" color="#67e8f9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Змейка">
+    <meta name="application-name" content="Неоновая Змейка">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Современная и визуально привлекательная игра «Змейка» с неоновым дизайном">
+    <meta name="keywords" content="игра, змейка, аркада, мобильная игра, PWA">
+    <meta name="author" content="Neon Snake Game">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Неоновая Змейка">
+    <meta property="og:description" content="Современная и визуально привлекательная игра «Змейка» с неоновым дизайном">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/pwa-512x512.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Неоновая Змейка">
+    <meta name="twitter:description" content="Современная и визуально привлекательная игра «Змейка» с неоновым дизайном">
+    <meta name="twitter:image" content="/pwa-512x512.png">
+    
+    <title>Неоновая Змейка</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <style>
+      /* PWA Install button styles moved to index.css */
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0-rc.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0-rc.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-C-sk5eij.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CP0fAMz0.css">
+<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+  <body>
+    <button id="install-button">Установить игру</button>
+    <div id="root"></div>
+    
+    <!-- PWA Install Script -->
+    <script>
+      let deferredPrompt;
+      
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        const installButton = document.getElementById('install-button');
+        installButton.style.display = 'block';
+        
+        installButton.addEventListener('click', () => {
+          installButton.style.display = 'none';
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
+        });
+      });
+      
+      window.addEventListener('appinstalled', () => {
+        console.log('PWA was installed');
+        const installButton = document.getElementById('install-button');
+        installButton.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
