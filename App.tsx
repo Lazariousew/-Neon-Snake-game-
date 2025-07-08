@@ -165,7 +165,7 @@ const App: React.FC = () => {
             <h1 className="text-6xl md:text-8xl font-bold text-cyan-400 tracking-widest mb-8" style={{textShadow: '0 0 15px #22d3ee, 0 0 25px #22d3ee'}}>ЗМЕЙКА</h1>
             <button 
               onClick={startGame}
-              className="bg-cyan-500 text-slate-900 font-bold py-3 px-8 rounded-lg text-xl hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105 animate-start-pulse"
+              className="bg-cyan-500 text-slate-900 font-bold py-3 px-8 rounded-lg text-xl hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 animate-start-pulse"
             >
               Начать игру
             </button>
