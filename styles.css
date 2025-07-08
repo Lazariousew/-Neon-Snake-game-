@@ -1,0 +1,41 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 0.5s ease-in-out forwards; }
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-scale-in { animation: scale-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+@keyframes food-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 0 10px #f87171, 0 0 20px #ef4444;
+  }
+  50% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #f87171, 0 0 30px #ef4444;
+  }
+}
+.animate-food-pulse { animation: food-pulse 1.5s infinite; }
+
+@keyframes start-pulse {
+  0%, 100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
+  }
+}
+.animate-start-pulse { animation: start-pulse 2s infinite ease-in-out; }
+    
