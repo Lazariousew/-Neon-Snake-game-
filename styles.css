@@ -29,11 +29,9 @@
 
 @keyframes start-pulse {
   0%, 100% {
-    transform: scale(1.05);
     box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
   }
   50% {
-    transform: scale(1.1);
     box-shadow: 0 0 16px rgba(56, 189, 248, 0.8);
   }
 }
